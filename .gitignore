@@ -39,3 +39,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+.idea/
+Would skip repository pkg/dep/sources/https---github.com-spf13-pflag
+Would skip repository pkg/dep/sources/https---go.googlesource.com-crypto
+pkg/darwin_amd64
+src/ioncreate.com/tools/vvssh/doc/
+src/ioncreate.com/tools/vvssh/vendor/
