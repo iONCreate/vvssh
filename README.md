@@ -4,6 +4,30 @@
 
 [TOC]
 
+## English
+
+### 1. What is it
+Each time when I faced a release deployment, I faced countless numbers of physical or virtual PC devices and repeatedly tapped the keyboard and hit the "SSH" command. I am tired, I want to change. For this I learned [Expect](https://en.wikipedia.org/wiki/Expect) , which is too complicated. It also requires a lot of TK/TCL scripts to be installed on the system, which is too cumbersome. So I gave myself a birthday present and gave it to all of you.
+
+** This is an automated tool for SSH remotely running scripts! ** it can:
+- Automatic  login SSH server by just wrtie  a simple configuration file
+- Automatically run remote shell commands just like you type commands manually
+- Automatically populated sudo password just like you entered it manually
+- Automatically read remote command output just like you do it manually copying/pasting
+- Built-in SCP functionality eliminates the need to retype command lines and passwords
+- Other features, waiting for your contribution to join :-)
+### 2. Usage
+#### 2.1. Install
+#### 2.2. Quick Start
+#### 2.3. Commond Line Usage
+#### 2.4. Write a Config File
+#### 2.5. Write a Remote Shell Script
+### 3. How Contribution
+TODO 
+
+   
+   
+
 ## 中文版
 
 ### 1. 这是个啥货？
@@ -60,7 +84,7 @@
 
 
 
-#### 2.3. 使用
+#### 2.3. 命令行使用
 
 按照一下方式运行
 
@@ -128,7 +152,45 @@ mkdir -p $[HOME_DIR]/ttt
 #==scp /test1.file $[HOME_DIR]/ttt
 ```
 
-内部变量还可以使用环境变量用来在两个不同的本机Shell 脚本之间沟通。比如：现有两个脚本分别叫做install.sh和remote-cmd.sh
+内部变量还可以使用环境变量用来在两个不同的本机Shell 脚本之间沟通。
+
+比如：现有两个脚本分别叫做install.sh和remote-cmd.sh
+
+~~~bash
+#!/usr/bin/env bash
+#this is install.sh
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+RUNDIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+echo "Runing From $RUNDIR"
+export PUBLISH_DIR=${RUNDIR}
+
+echo "test pass 192.168.0.1 30" >${RUNDIR}/Server.conf
+
+vvssh ${RUNDIR}/Server.conf remote-cmd.sh
+~~~
+
+
+
+~~~bash
+#!vvssh
+#this is remote-cmd.sh
+#==autosudo
+
+#==var_env $[PUBLISH_DIR] PUBLISH_DIR
+
+#==var_cmd $[SSH_HOME_DIR] pwd
+sudo apt-get -y -q install build-essential
+mkdir $[SSH_HOME_DIR]/test
+#==scp $[PUBLISH_DIR]/test.file $[SSH_HOME_DIR]/test
+
+~~~
+
+
 
 
 
@@ -261,8 +323,6 @@ mkdir -p $[HOME_DIR]/ttt
      
 
 
-
-## English
 
 
 
