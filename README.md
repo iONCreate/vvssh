@@ -9,7 +9,7 @@
 ### 1. What is it
 Each time when I faced a release deployment, I faced countless numbers of physical or virtual PC devices and repeatedly tapped the keyboard and hit the "SSH" command. I am tired, I want to change. For this I learned [Expect](https://en.wikipedia.org/wiki/Expect) , which is too complicated. It also requires a lot of TK/TCL scripts to be installed on the system, which is too cumbersome. So I gave myself a birthday present and gave it to all of you.
 
-** This is an automated tool for SSH remotely running scripts! ** it can:
+**This is an automated tool for SSH remotely running scripts!** it can:
 - Automatic  login SSH server by just wrtie  a simple configuration file
 - Automatically run remote shell commands just like you type commands manually
 - Automatically populated sudo password just like you entered it manually
@@ -26,7 +26,7 @@ Each time when I faced a release deployment, I faced countless numbers of physic
 TODO 
 
    
-   
+
 
 ## 中文版
 
