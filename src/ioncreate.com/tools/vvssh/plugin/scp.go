@@ -206,7 +206,8 @@ func scpFile(SessionIOIn io.Writer,ResultOutReader *bufio.Reader,srcFile string)
 		return err
 	}
 	defer File.Close()
-	println("start SCP..File Copy ing..."+srcFileInfo.Name()," ",srcFileInfo.Size()," ",util.Itoa(int(srcFileInfo.Mode())))
+
+	println("start SCP..File Copy ing..."+srcFileInfo.Name()," ",srcFileInfo.Size()," ",strconv.Itoa(int(srcFileInfo.Mode())))
 
 	_, err = fmt.Fprintf(SessionIOIn, "%c%#4o %d %s\n", 'C',srcFileInfo.Mode()&os.ModePerm, srcFileInfo.Size(), srcFileInfo.Name())
 
@@ -252,7 +253,7 @@ func scpFile2(SessionIOIn io.Writer,ResultOutReader *bufio.Reader,srcFile string
 			return
 		}
 		defer File.Close()
-		println("start SCP..File Copy ing..."+srcFileInfo.Name()," ",srcFileInfo.Size()," ",util.Itoa(int(srcFileInfo.Mode())))
+		println("start SCP..File Copy ing..."+srcFileInfo.Name()," ",srcFileInfo.Size()," ",strconv.Itoa(int(srcFileInfo.Mode())))
 
 		_, err = fmt.Fprintf(SessionIOIn, "%c%#4o %d %s\n", 'C',srcFileInfo.Mode()&os.ModePerm, srcFileInfo.Size(), srcFileInfo.Name())
 

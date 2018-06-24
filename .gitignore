@@ -45,3 +45,4 @@ Would skip repository pkg/dep/sources/https---github.com-spf13-pflag
 Would skip repository pkg/dep/sources/https---go.googlesource.com-crypto
 pkg/
 src/ioncreate.com/tools/vvssh/vendor/
+out/
