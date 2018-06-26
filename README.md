@@ -43,7 +43,7 @@ You can run from command line interface like this:
 - `vvssh [config file]` 
 - `vvssh [chongfig file] [remote shell script file]`
 - `vvssh [-u user] [-p pass] [-s ServerAddressAndPort] [-t timeout] [config file] [remote shell script file]`
-- TODO：`vvssh [-u 用户名] [-p 密码] [-s 服务器] [-t 超时] [-c] [简单脚本]`
+- TODO：`vvssh [-u user] [-p pass] [-s ServerAddressAndPort] [-t timeout] [-c] [simple command]`
 
 
 
@@ -251,8 +251,7 @@ The following commands are currently supported:
 
     ```bash
      #==var_cmd $[DIRS] ls -l
-     ```
-     
+    ```
 
 8. var_env
 
